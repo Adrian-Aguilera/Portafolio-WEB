@@ -9,7 +9,7 @@
         </v-app-bar-nav-icon>
       </template>
       <v-app-bar-title @click="drawer = !drawer" class="text-roboto">
-        Portafolio
+        {{ "< Portafolio />" }}
       </v-app-bar-title>
   
       <template v-slot:append>
@@ -52,11 +52,18 @@
       </v-list>
     </v-navigation-drawer>
     <v-main>
-      <v-container fluid class="d-flex align-content-center">
+      <v-container fluid class="d-flex justify-center">
         <router-view/>
       </v-container>
-      <v-footer >
-        Adrian-Aguilera
+      <v-footer
+        app
+        style="justify-content: flex-end;"
+      >
+        <span>
+          &copy; 2024 by Adrian Aguilera
+        </span>
+        <v-badge inline color="success" content="dev">
+        </v-badge>
       </v-footer>
     </v-main>
 
