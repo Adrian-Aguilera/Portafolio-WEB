@@ -6,6 +6,14 @@
       </v-app-bar-nav-icon>
     </template>
     <v-app-bar-title>Portafolio</v-app-bar-title>
+
+    <template v-slot:append>
+      <div v-for="item in appbar" :key="item.contacto" class="mr-4">
+        <v-btn :href="item.to" variant="outlined">
+          <v-icon>{{ item.icon }}</v-icon>
+        </v-btn>
+      </div>
+    </template>
   </v-app-bar>
   <v-navigation-drawer class="text-roboto">
     <v-list class="pl-0">
@@ -46,13 +54,13 @@ export default defineComponent({
         items: [
           {
             title: 'Perfil',
-            icon: 'bi bi-person-badge',
+            icon: 'bi bi-robot',
             to: '/',
           },
         ],
       },
       {
-        seccion: 'Lista de proyectos',
+        seccion: 'Items',
         items: [
           {
             title: 'Proyectos',
@@ -62,6 +70,18 @@ export default defineComponent({
         ],
       },
     ],
+    appbar:[
+      {
+        contacto: 'github',
+        icon: 'mdi-github',
+        to: 'https://github.com/Adrian-Aguilera',
+      },
+      {
+        contacto: 'LinkedIn',
+        icon: 'mdi-linkedin',
+        to: 'https://www.linkedin.com/in/adri%C3%A1n-aguilera/',
+      },
+    ]
   }),
   methods: {
     changeTheme() {
