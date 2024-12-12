@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar :elevation="0" flat class="text-roboto">
+  <v-app-bar :elevation="0" flat>
     <template v-slot:prepend>
       <v-app-bar-nav-icon >
         <v-chip color="warning" @click="changeTheme" variant="outlined">
@@ -7,7 +7,9 @@
         </v-chip>
       </v-app-bar-nav-icon>
     </template>
-    <v-app-bar-title>Portafolio</v-app-bar-title>
+    <v-app-bar-title @click="drawer = !drawer" class="text-roboto">
+      Portafolio
+    </v-app-bar-title>
 
     <template v-slot:append>
       <div v-for="item in appbar" :key="item.contacto" class="mr-4">
@@ -18,14 +20,17 @@
             </v-btn>
           </template>
         </v-tooltip>
-
       </div>
     </template>
   </v-app-bar>
-  <v-navigation-drawer class="text-roboto">
+  <v-navigation-drawer
+    v-model="drawer"
+    :rail="rail"
+  >
     <v-list class="pl-0">
-      <v-list-item v-for="item in menuData" :key="item.seccion">
-        <v-list-item-title>{{ item.seccion }}</v-list-item-title>
+      <v-list-item v-for="(item,index) in menuData" :key="index">
+        <v-list-item-title>{{ item.seccion }}
+        </v-list-item-title>
         <v-divider></v-divider>
         <v-list-item-content>
           <v-list-item
@@ -92,10 +97,15 @@ export default defineComponent({
       },
     ],
     colorTheme: null,
+    drawer: null,
+    rail: false,
   }),
   methods: {
     changeTheme() {
       this.$store.dispatch('setTheme', this.$store.getters.theme === 'dark' ? 'light' : 'dark');
+    },
+    getColorTheme() {
+      this.colorTheme = this.$store.getters.theme;
     },
   },
   computed: {
