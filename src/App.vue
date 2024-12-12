@@ -20,3 +20,9 @@ export default {
   },
 }
 </script>
+
+<style>
+  .text-roboto {
+    font-family: "Roboto Mono", monospace;
+  }
+</style>
