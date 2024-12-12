@@ -12,7 +12,11 @@ export default {
   name: 'App',
 
   data: () => ({
-    theme: 'dark',
   }),
+  computed: {
+    theme() {
+      return this.$store.getters.theme
+    },
+  },
 }
 </script>
