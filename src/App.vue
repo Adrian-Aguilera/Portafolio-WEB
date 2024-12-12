@@ -1,5 +1,5 @@
 <template>
-  <v-app :theme="theme">
+  <v-app :theme="theme" class="text-roboto">
     <v-app-bar :elevation="0" flat>
       <template v-slot:prepend>
         <v-app-bar-nav-icon >
@@ -51,11 +51,11 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-main class="text-roboto">
-      <v-container fluid>
+    <v-main>
+      <v-container fluid class="d-flex align-content-center">
         <router-view/>
       </v-container>
-      <v-footer class="text-roboto">
+      <v-footer >
         Adrian-Aguilera
       </v-footer>
     </v-main>

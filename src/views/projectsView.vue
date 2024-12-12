@@ -1,7 +1,5 @@
 <template>
-    <div>
-        <boxComponent></boxComponent>
-    </div>
+    <boxComponent></boxComponent>
 </template>
 
 <script>
