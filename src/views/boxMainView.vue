@@ -1,18 +1,16 @@
 <template>
-  <HelloWorld />
+  <boxComponent />
 </template>
 
 <script>
 import { defineComponent } from 'vue';
-
-// Components
-import HelloWorld from '../components/HelloWorld.vue';
+import boxComponent from '@/components/boxComponent.vue';
 
 export default defineComponent({
-  name: 'HomeView',
+  name: 'boxMainView',
 
   components: {
-    HelloWorld,
+    boxComponent,
   },
 });
 </script>
