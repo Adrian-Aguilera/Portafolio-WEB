@@ -1,11 +1,17 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import boxMainView from '../views/boxMainView.vue'
+import projectsView from '../views/projectsView.vue'
+import perfilView from '../views/perfilView.vue'
 
 const routes = [
   {
     path: '/',
-    name: 'home',
-    component: boxMainView
+    name: 'perfil',
+    component: perfilView
+  },
+  {
+    path: '/proyectos',
+    name: 'proyectos',
+    component: projectsView
   },
 ]
 
