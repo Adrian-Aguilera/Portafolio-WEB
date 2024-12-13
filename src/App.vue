@@ -42,7 +42,7 @@
           :key="subItem.title"
           :to="subItem.to"
         >
-          <v-list-item-title>
+          <v-list-item-title class="mb-3 mt-2">
             <span class="text-grey-lighten-1">~ </span>
             <v-chip :color="theme === 'dark'? 'error':'primary'">
               <v-icon>{{ subItem.icon }}</v-icon>
@@ -101,6 +101,16 @@ export default {
             title: 'works',
             icon: 'bi bi-pc-display-horizontal',
             to: '/works',
+          },
+        ],
+      },
+      {
+        seccion: 'contact',
+        items: [
+          {
+            title: 'contact',
+            icon: 'mdi-email',
+            to: '/contact',
           },
         ],
       },
