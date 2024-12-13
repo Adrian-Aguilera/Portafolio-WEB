@@ -41,7 +41,6 @@ export default {
                     },
                 ],
                 date: '2 DAY AGO UPDATED',
-                tags: ['tag1', 'tag2', 'tag3'],
             },
         ],
         content: "A list of projects I've worked on in the last years. I'm currently working on a new project, so I'll add it here soon.",

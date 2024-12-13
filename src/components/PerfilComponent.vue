@@ -10,11 +10,11 @@
                 <v-slide-group-item >
                     <v-badge  color="warning" content="from El salvador" offset-x="10" offset-y="10">
                         <pre class="text-green-accent-4 font-weight-black" style="font-size: 1rem; font-family: 'Courier New', Courier, monospace; white-space: pre; line-height: 1;">
-                  _      _     _               _             _ _
-                 /_\  __| |_ _(_)__ _ _ _     /_\  __ _ _  _(_| |___ _ _ __ _
-                / _ \/ _` | '_| / _` | ' \   / _ \/ _` | || | | / -_| '_/ _` |
-               /_/ \_\__,_|_| |_\__,_|_||_| /_/ \_\__, |\_,_|_|_\___|_| \__,_|
-                                                  |___/
+         _      _     _               _             _ _
+        /_\  __| |_ _(_)__ _ _ _     /_\  __ _ _  _(_| |___ _ _ __ _
+       / _ \/ _` | '_| / _` | ' \   / _ \/ _` | || | | / -_| '_/ _` |
+      /_/ \_\__,_|_| |_\__,_|_||_| /_/ \_\__, |\_,_|_|_\___|_| \__,_|
+                                         |___/
                         </pre>
                     </v-badge>
                 </v-slide-group-item>
@@ -57,20 +57,20 @@
                         </v-card-text>
                     </v-card>
                 </div>
-            </v-card-text>
-            <v-container fluid>
-                <div>
-                    <v-card variant="text" subtitle="~ github activity">
-                        <v-card-text  >
-                            <v-row  >
-                                <v-col v-for="(activity, index) in gitHubActivity" :key="index" cols="12"  md="4" lg="3">
-                                    <v-img :src="activity.avatar" width="350" ></v-img>
-                                </v-col>
-                            </v-row>
-                        </v-card-text>
-                    </v-card>
+                <span class="text-grey-lighten-1 font-weight-bold">~ github activity</span>
+                <div class="d-flex">
+                    <v-slide-group
+                        show-arrows
+                    >
+                        <v-slide-group-item >
+                            <v-card-text v-for="(activity, index) in gitHubActivity" :key="index" >
+                                <v-img :src="activity.avatar" width="350"></v-img>
+                            </v-card-text>
+                        </v-slide-group-item>
+                    </v-slide-group>
+
                 </div>
-            </v-container>
+            </v-card-text>
           </v-card-text>
         <span class="d-flex justify-end mr-3 text-orange-darken-2 text-h5 mb-1"><v-icon>bi bi-alt</v-icon></span>
     </v-card>

@@ -28,20 +28,22 @@
     <v-navigation-drawer
       v-model="drawer"
       :rail="rail"
+      :width="320"
       app
     >
       <v-list class="pl-0">
         <v-list-item v-for="(item,index) in menuData" :key="index">
-          <v-list-item-title>{{ item.seccion }}
+          <v-list-item-title ><span class="text-green-accent-3">~ [adrian@dev]$ ls </span>{{ item.seccion }}/
           </v-list-item-title>
           <v-divider></v-divider>
-          
+
           <v-list-item
           v-for="subItem in item.items"
           :key="subItem.title"
           :to="subItem.to"
         >
           <v-list-item-title>
+            <span class="text-grey-lighten-1">~ </span>
             <v-chip :color="theme === 'dark'? 'error':'primary'">
               <v-icon>{{ subItem.icon }}</v-icon>
             </v-chip>
@@ -88,7 +90,7 @@ export default {
         ],
       },
       {
-        seccion: 'Items',
+        seccion: 'items',
         items: [
           {
             title: 'projects',
