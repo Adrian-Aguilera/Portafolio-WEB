@@ -24,7 +24,7 @@
                 <!--my Stacks technical skills-->
                 <span class="text-green-accent-3 d-block">~ ls -skills </span>
                 <div>
-                    <v-card v-for="(skill, index) in skills" :key="index" variant="text" :subtitle="`~ ${skill.title} development`" class="d-flex">
+                    <v-card v-for="(skill, index) in skills" :key="index" variant="text" :subtitle="`~ ${skill.title} development`">
                         <v-card-text >
                             <v-list class="d-flex">
                                 <v-list-item v-for="(technology, index) in skill.technologies" :key="index">
@@ -69,65 +69,12 @@ export default {
             type: String,
             default: 'This is a box component',
         },
+        skills: {
+            type: Array,
+            default: () => [],
+        },
     },
     data: () => ({
-        skills: [
-            {
-                title: 'Stacks',
-                technologies: [
-                    {
-                        title: 'Python',
-                        icon: 'mdi mdi-language-python',
-                    },
-                    {
-                        title: 'Javascript',
-                        icon: 'mdi mdi-language-javascript',
-                    },
-                    {
-                        title: 'php',
-                        icon: 'mdi mdi-language-php',
-                    },
-                    {
-                        title: 'Wordpress',
-                        icon: 'bi bi-wordpress',
-                    },
-                    {
-                        title: 'Ubuntu',
-                        icon: 'bi bi-ubuntu',
-                    },
-                    {
-                        title: 'Digital Ocean',
-                        icon: 'bi bi-cloud-plus-fill',
-                    },
-                ],
-                frameworks: [
-                    {
-                        title: 'Django',
-                        icon: 'bi bi-filetype-py',
-                    },
-                    {
-                        title: 'Vue.js',
-                        icon: 'mdi mdi-vuejs',
-                    },
-                    {
-                        title: 'vuetify',
-                        icon: 'mdi mdi-vuetify',
-                    },
-                    {
-                        title: 'Angular',
-                        icon: 'mdi mdi-angular',
-                    },
-                    {
-                        title: 'ionic',
-                        icon: 'bi bi-terminal',
-                    },
-                    {
-                        title: 'Git-Github',
-                        icon: 'mdi mdi-github',
-                    },
-                ],
-            },
-        ],
     }),
     methods: {},
     computed: {
