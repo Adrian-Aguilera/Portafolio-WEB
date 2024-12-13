@@ -1,5 +1,5 @@
 <template>
-    <PerfilComponent :myself="myself" title="Perfil" :skills="skills"></PerfilComponent>
+    <PerfilComponent :myself="myself" title="Perfil" :skills="skills" :gitHubActivity="gitHubActivity"></PerfilComponent>
 </template>
 
 <script>
@@ -76,9 +76,15 @@ export default {
                 ],
             },
         ],
+        gitHubActivity: [
+            {
+                avatar: 'https://github-readme-stats.vercel.app/api?username=Adrian-Aguilera&show_icons=true&theme=dracula&locale=en&hide_border=false',
+            },
+            {
+                avatar: 'https://github-readme-stats.vercel.app/api?username=Adrian-Aguilera&show_icons=true&theme=dracula&locale=en&hide_border=false',
+            },
+        ],
     }),
-    methods: {
-        
-    }
+    methods: {}
 }
 </script>

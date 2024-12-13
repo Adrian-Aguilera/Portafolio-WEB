@@ -58,7 +58,19 @@
                     </v-card>
                 </div>
             </v-card-text>
-
+            <v-container fluid>
+                <div>
+                    <v-card variant="text" subtitle="~ github activity">
+                        <v-card-text  >
+                            <v-row  >
+                                <v-col v-for="(activity, index) in gitHubActivity" :key="index" cols="12"  md="4" lg="3">
+                                    <v-img :src="activity.avatar" width="350" ></v-img>
+                                </v-col>
+                            </v-row>
+                        </v-card-text>
+                    </v-card>
+                </div>
+            </v-container>
           </v-card-text>
         <span class="d-flex justify-end mr-3 text-orange-darken-2 text-h5 mb-1"><v-icon>bi bi-alt</v-icon></span>
     </v-card>
@@ -78,6 +90,10 @@ export default {
             default: 'This is a box component',
         },
         skills: {
+            type: Array,
+            default: () => [],
+        },
+        gitHubActivity: {
             type: Array,
             default: () => [],
         },
