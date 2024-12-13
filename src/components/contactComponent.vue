@@ -8,6 +8,8 @@
                 <v-card-text>
                     <p class="pb-5">
                         <span class="text-green-accent-3 d-block">~ mkdir contact me </span>
+                        <span class="d-block">$ My name is {{ Myname }}, ho can I help you?</span>
+                        <span class="d-block">$ My email is {{Myemail}}</span>
                     </p>
                     <v-divider :thickness="5" class="pb-4"></v-divider>
                     <v-form ref="form">
@@ -60,6 +62,14 @@ export default {
             type: String,
             default: 'contact',
         },
+        Myname: {
+            type: String,
+            default: 'Adrian Aguilera',
+        },
+        Myemail: {
+            type: String,
+            default: 'adrian.aguilera@gmail.com',
+        },
     },
     data: () => ({
         rules: {
@@ -70,6 +80,8 @@ export default {
             },
         },
         email: '',
+        message: '',
+        name: '',
     }),
     methods: {
         async sendEmail() {
