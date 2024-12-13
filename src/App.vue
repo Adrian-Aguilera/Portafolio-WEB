@@ -95,7 +95,12 @@ export default {
           {
             title: 'projects',
             icon: 'bi bi-bezier2',
-            to: '/proyectos',
+            to: '/projects',
+          },
+          {
+            title: 'works',
+            icon: 'bi bi-pc-display-horizontal',
+            to: '/works',
           },
         ],
       },
