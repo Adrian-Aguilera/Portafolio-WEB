@@ -1,9 +1,9 @@
 <template>
-    <v-card  width="80%" :variant="theme==='dark'? none:'outlined'">
+    <v-card  width="90%" :variant="theme==='dark'? none:'outlined'">
         <v-card-title >{{ `< ${title} />` }}</v-card-title>
         <span class="ml-3 text-orange-darken-2 text-h5">{</span>
         <v-card-text>
-            <p class=" mb-2">asasdashdgajhsdghjasdgjhasgdjhagsdjasasdashdgajhsdghjasdgjhasgdjhagsdjasasdashdgajhsdghjasdgjhasgdjhagsdjasasdashdgajhsdghjasdgjhasgdjhagsdjasasdashdgajhsdghjasdgjhasgdjhagsdjasasdashdgajhsdghjasdgjhasgdjhagsdjasasdashdgajhsdghjasdgjhasgdjhagsdjasasdashdgajhsdghjasdgjhasgdjhagsdjasasdashdgajhsdghjasdgjhasgdjhagsdjasasdashdgajhsdghjasdgjhasgdjhagsdjasasdashdgajhsdghjasdgjhasgdjhagsdjasasdashdgajhsdghjasdgjhasgdjhagsdjasasdashdgajhsdghjasdgjhasgdjhagsdjasasdashdgajhsdghjasdgjhasgdjhagsdjasasdashdgajhsdghjasdgjhasgdjhagsdjasasdashdgajhsdghjasdgjhasgdjhagsdjasasdashdgajhsdghjasdgjhasgdjhagsdjasasdashdgajhsdghjasdgjhasgdjhagsdjasasdashdgajhsdghjasdgjhasgdjhagsdjasasdashdgajhsdghjasdgjhasgdjhagsdjasasdashdgajhsdghjasdgjhasgdjhagsdjasasdashdgajhsdghjasdgjhasgdjhagsdjasasdashdgajhsdghjasdgjhasgdjhagsdjasasdashdgajhsdghjasdgjhasgdjhagsdjasasdashdgajhsdghjasdgjhasgdjhagsdjasasdashdgajhsdghjasdgjhasgdjhagsdj</p>
+            <p class=" mb-2">asasdashdgajhsdghjasdgjhasgdjhagsdjasasdashdgajhsdghjasdgjhasgdjhagsdjasasdashdgajhsdghjasdgjhasgdjhagsdjasasdashdgajhsdghjasdgjhasgdjhagsdjasasdashdgajhsdghjasdgjhasgdjhagsdjasasdashdgajhsdghjasdgjhasgdjhagsdjasasdashdgajhsdghjasdgjhasgdjhagsdjasasdashdgajhsdghjasdgjhasgdjhagsdjasasdashdgajhsdghjasdgjhasgdjhagsdjasasdashdgajhsdghjasdgjhasgdjhagsdjasasdashdgajhsdghjasdgjhasgdjhagsdjasasdashdgajhsdgh</p>
             <span class="d-flex justify-end mr-3 text-orange-darken-2 text-h5 mb-1">}</span>
             <v-divider :thickness="5" class="mb-2 mt-2"></v-divider>
             <span class="ml-3 text-orange-darken-2 text-h5">{</span>
@@ -20,27 +20,40 @@
                                 <v-icon icon="mdi-github" class="mr-1" ></v-icon>
                                 github • resopitory
                             </v-btn>
-                            <v-btn :variant="theme==='dark'? 'outlined':'tonal'" size="small" :href="item.vsCode">
-                                <img height="20" src="https://img.icons8.com/nolan/64/visual-studio-code-2019.png" alt="visual-studio-code-2019" class="mr-1"/>
-                                VS code • github
-                            </v-btn>
+                            <v-menu>
+                                <template v-slot:activator="{ props }">
+                                    <v-btn :variant="theme==='dark'? 'outlined':'tonal'" size="small" v-bind="props">
+                                        <v-icon icon="bi bi-caret-down"></v-icon>
+                                    </v-btn>
+                                </template>
+                                <v-list>
+                                    <v-list-item>
+                                        <v-list-item-title>
+                                            <v-btn :variant="theme==='dark'? 'outlined':'tonal'" size="small"  >
+                                                <img height="20" src="https://img.icons8.com/nolan/64/visual-studio-code-2019.png" alt="visual-studio-code-2019" class="mr-1"/>
+                                                VS code • github
+                                            </v-btn>
+                                        </v-list-item-title>
+                                    </v-list-item>
+                                </v-list>
+                            </v-menu>
                         </div>
                     </v-list-item-subtitle>
-                    <v-list-item-title class="d-flex justify-space-between mb-5">{{ item.name }} /
-                        {{ item.description }}
+                    <v-list-item-title class="mb-5">{{ item.name }}
                     </v-list-item-title>
-                    <v-list-item-action-text class="d-flex justify-space-between">
-                        <div>
-                            <v-btn color="success" variant="tonal" class="mr-2">
-                                RUNNING
-                            </v-btn>
-                            <v-btn  variant="tonal">
-                                DEVELOPMENT
+                    <v-list-item-subtitle class="mb-5">
+                        {{ item.description }}
+                    </v-list-item-subtitle>
+                    <v-list-item-action-text class="d-flex">
+                        <div v-for="(status,index) in item.status" :key="index">
+                            <v-btn :color="status.color" variant="tonal" class="mr-2">
+                                {{ status.title }}
                             </v-btn>
                         </div>
-                        <v-chip-group column>
-                            <v-chip v-for="(tag,index) in item.tags" :key="index" class="mr-2" color="success" text-color="white">{{ tag }}</v-chip>
-                        </v-chip-group>
+                        <v-chip color="error" variant="tonal">
+                            <v-icon class="mr-1">bi bi-app</v-icon>
+                            {{ item.date }}
+                        </v-chip>
                     </v-list-item-action-text>
                 </v-list-item>
             </v-list>
@@ -93,27 +106,17 @@ export default {
                         href: 'https://www.w3schools.com/js/default.asp',
                     },
                 ],
-                date: '2021-01-01',
-                tags: ['tag1', 'tag2', 'tag3'],
-            },
-                        {
-                name: 'Portafolio Web',
-                description: 'This is a project description',
-                github: 'https://github.com/Adrian-Aguilera',
-                vsCode: 'https://github.dev/Portafolio-WEB',
-                technologies: [
+                status: [
                     {
-                        title: 'Javascript',
-                        disabled: false,
-                        href: 'https://www.w3schools.com/js/default.asp',
+                        title: 'RUNNING',
+                        color: 'success',
                     },
                     {
-                        title: 'Python',
-                        disabled: false,
-                        href: 'https://www.w3schools.com/js/default.asp',
+                        title: 'DEVELOPMENT',
+                        color: 'warning',
                     },
                 ],
-                date: '2021-01-01',
+                date: '2 DAY AGO',
                 tags: ['tag1', 'tag2', 'tag3'],
             },
         ]
