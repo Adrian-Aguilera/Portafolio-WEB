@@ -4,14 +4,22 @@
         </v-card-title>
         <span class="ml-3 text-orange-darken-2 text-h5"><v-icon>bi bi-alt</v-icon></span>
         <v-card-text>
-            <v-badge  color="warning" content="from El salvador" offset-x="10" offset-y="10">
-            <pre class="text-green-accent-4 font-weight-black" style="font-size: 1rem; font-family: 'Courier New', Courier, monospace; white-space: pre; line-height: 1;">
-      _      _     _               _             _ _
-     /_\  __| |_ _(_)__ _ _ _     /_\  __ _ _  _(_| |___ _ _ __ _
-    / _ \/ _` | '_| / _` | ' \   / _ \/ _` | || | | / -_| '_/ _` |
-   /_/ \_\__,_|_| |_\__,_|_||_| /_/ \_\__, |\_,_|_|_\___|_| \__,_|
-                                      |___/
-            </pre></v-badge>
+            <v-slide-group
+                show-arrows
+            >
+                <v-slide-group-item >
+                    <v-badge  color="warning" content="from El salvador" offset-x="10" offset-y="10">
+                        <pre class="text-green-accent-4 font-weight-black" style="font-size: 1rem; font-family: 'Courier New', Courier, monospace; white-space: pre; line-height: 1;">
+                  _      _     _               _             _ _
+                 /_\  __| |_ _(_)__ _ _ _     /_\  __ _ _  _(_| |___ _ _ __ _
+                / _ \/ _` | '_| / _` | ' \   / _ \/ _` | || | | / -_| '_/ _` |
+               /_/ \_\__,_|_| |_\__,_|_||_| /_/ \_\__, |\_,_|_|_\___|_| \__,_|
+                                                  |___/
+                        </pre>
+                    </v-badge>
+                </v-slide-group-item>
+            </v-slide-group>
+
             <v-divider :thickness="5" class="pb-4"></v-divider>
             <v-card-text>
                 <p class="pb-5">

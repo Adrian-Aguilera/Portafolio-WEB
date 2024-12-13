@@ -78,11 +78,11 @@ export default {
   data: () => ({
     menuData: [
       {
-        seccion: 'Perfil',
+        seccion: 'profile',
         items: [
           {
-            title: 'Perfil',
-            icon: 'bi bi-robot',
+            title: 'profile',
+            icon: 'mdi mdi-shield-account',
             to: '/',
           },
         ],
@@ -91,7 +91,7 @@ export default {
         seccion: 'Items',
         items: [
           {
-            title: 'Proyectos',
+            title: 'projects',
             icon: 'bi bi-bezier2',
             to: '/proyectos',
           },

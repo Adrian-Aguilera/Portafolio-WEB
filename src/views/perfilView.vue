@@ -54,8 +54,8 @@ export default {
                         icon: 'mdi mdi-vuetify',
                     },
                     {
-                        title: 'Angular',
-                        icon: 'mdi mdi-angular',
+                        title: 'react',
+                        icon: 'mdi mdi-react',
                     },
                     {
                         title: 'ionic',
@@ -64,6 +64,10 @@ export default {
                     {
                         title: 'Git-Github',
                         icon: 'mdi mdi-github',
+                    },
+                    {
+                        title: 'Ollama AI',
+                        icon: 'mdi mdi-sheep',
                     },
                 ],
             },
