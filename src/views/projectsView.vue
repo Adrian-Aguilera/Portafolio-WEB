@@ -19,10 +19,12 @@ export default {
                 technologies: [
                     {
                         title: 'Javascript',
+                        disabled: false,
                         href: 'https://www.w3schools.com/js/default.asp',
                     },
                     {
                         title: 'Python',
+                        disabled: false,
                         href: 'https://www.w3schools.com/js/default.asp',
                     },
                 ],
