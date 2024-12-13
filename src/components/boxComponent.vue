@@ -9,7 +9,7 @@
                 {{ content }}
             </p>
             <v-divider :thickness="5" class="pb-4"></v-divider>
-            <v-data-iterator :items="datatoSend" :items-per-page="itemsPerPage">
+            <v-data-iterator :items="data" :items-per-page="itemsPerPage">
                 <template v-slot:default="{ items }">
                     <v-list-item v-for="(item, index) in items" :key="index">
                         <v-divider :thickness="5" v-if="index !== 0" class="mt-2"></v-divider>
@@ -27,7 +27,7 @@
                                     <v-btn :variant="theme === 'dark' ? 'outlined' : 'tonal'" size="small" class="mr-2"
                                         :href="item.raw.github">
                                         <v-icon icon="mdi-github" class="mr-1"></v-icon>
-                                        github • resopitory
+                                        github • repository
                                     </v-btn>
                                     <v-menu>
                                         <template v-slot:activator="{ props }">
@@ -39,7 +39,7 @@
                                         <v-list>
                                             <v-list-item>
                                                 <v-list-item-title>
-                                                    <v-btn :variant="theme === 'dark' ? 'outlined' : 'tonal'" size="small">
+                                                    <v-btn :variant="theme === 'dark' ? 'outlined' : 'tonal'" size="small" :href="item.raw.vsCode">
                                                         <img height="20"
                                                             src="https://img.icons8.com/nolan/64/visual-studio-code-2019.png"
                                                             alt="visual-studio-code-2019" class="mr-1" />
@@ -64,6 +64,7 @@
                                 <div class="d-flex">
                                     <div v-for="(status, index) in item.raw.status" :key="index">
                                         <v-btn :color="status.color" variant="tonal" class="mr-2">
+                                            <v-icon :icon="status.icon" class="mr-1"></v-icon>
                                             {{ status.title }}
                                         </v-btn>
                                     </div>
@@ -117,113 +118,14 @@ export default {
             type: String,
             default: 'This is a box component',
         },
+        data: {
+            type: Array,
+            default: () => [],
+        },
     },
     data: () => ({
-        items: [
-            {
-                text: 'Home',
-                disabled: false,
-                href: '/',
-            },
-            {
-                text: 'Projects',
-                disabled: false,
-                href: '/projects',
-            },
-        ],
         itemsPerPage: 2,
-        datatoSend: [
-            {
-                name: 'Portafolio Web',
-                description: 'This is a project description',
-                github: 'https://github.com/Adrian-Aguilera',
-                vsCode: 'https://github.dev/Portafolio-WEB',
-                technologies: [
-                    {
-                        title: 'Javascript',
-                        disabled: false,
-                        href: 'https://www.w3schools.com/js/default.asp',
-                    },
-                    {
-                        title: 'Python',
-                        disabled: false,
-                        href: 'https://www.w3schools.com/js/default.asp',
-                    },
-                ],
-                status: [
-                    {
-                        title: 'RUNNING',
-                        color: 'success',
-                    },
-                    {
-                        title: 'DEVELOPMENT',
-                        color: 'warning',
-                    },
-                ],
-                date: '2 DAY AGO',
-                tags: ['tag1', 'tag2', 'tag3'],
-            },
-            {
-                name: 'Portafolio Web2',
-                description: 'This is a project description',
-                github: 'https://github.com/Adrian-Aguilera',
-                vsCode: 'https://github.dev/Portafolio-WEB',
-                technologies: [
-                    {
-                        title: 'Javascript',
-                        disabled: false,
-                        href: 'https://www.w3schools.com/js/default.asp',
-                    },
-                    {
-                        title: 'Python',
-                        disabled: false,
-                        href: 'https://www.w3schools.com/python/default.asp',
-                    },
-                ],
-                status: [
-                    {
-                        title: 'RUNNING',
-                        color: 'success',
-                    },
-                    {
-                        title: 'DEVELOPMENT',
-                        color: 'warning',
-                    },
-                ],
-                date: '2 DAY AGO',
-                tags: ['tag1', 'tag2', 'tag3'],
-            },
-            {
-                name: 'Portafolio Web2',
-                description: 'This is a project description',
-                github: 'https://github.com/Adrian-Aguilera',
-                vsCode: 'https://github.dev/Portafolio-WEB',
-                technologies: [
-                    {
-                        title: 'Javascript',
-                        disabled: false,
-                        href: 'https://www.w3schools.com/js/default.asp',
-                    },
-                    {
-                        title: 'Python',
-                        disabled: false,
-                        href: 'https://www.w3schools.com/python/default.asp',
-                    },
-                ],
-                status: [
-                    {
-                        title: 'RUNNING',
-                        color: 'success',
-                    },
-                    {
-                        title: 'DEVELOPMENT',
-                        color: 'warning',
-                    },
-                ],
-                date: '2 DAY AGO',
-                tags: ['tag1', 'tag2', 'tag3'],
-            },
-        ],
+
     }),
     methods: {
         onClickSeeAll() {
