@@ -7,6 +7,7 @@ export default createStore({
   },
   getters: {
     theme: state => state.theme,
+    isDark: state => state.theme === 'dark' ? true : false,
   },
   mutations: {
     setTheme(state, theme) {
