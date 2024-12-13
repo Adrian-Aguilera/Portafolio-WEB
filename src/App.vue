@@ -4,14 +4,15 @@
       <template v-slot:prepend>
         <v-app-bar-nav-icon >
           <v-chip color="warning" @click="changeTheme" variant="outlined">
-            <v-icon icon="bi bi-code-slash"></v-icon>
+            <v-icon icon="bi bi-braces-asterisk"></v-icon>
           </v-chip>
         </v-app-bar-nav-icon>
       </template>
       <v-app-bar-title @click="drawer = !drawer" class="text-roboto">
         {{ "< Portafolio />" }}
+        <v-badge floating color="success" content="beta">
+        </v-badge>
       </v-app-bar-title>
-  
       <template v-slot:append>
         <div v-for="item in appbar" :key="item.contacto" class="mr-4">
           <v-tooltip :text="item.contacto" location="bottom">
