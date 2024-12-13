@@ -1,12 +1,10 @@
 <template>
     <v-card  width="90%" :variant="theme==='dark'? none:'outlined'">
         <v-card-title >{{ `< ${title} />` }}</v-card-title>
-        <span class="ml-3 text-orange-darken-2 text-h5">{</span>
+        <span class="ml-3 text-orange-darken-2 text-h5"><v-icon>bi bi-alt</v-icon></span>
         <v-card-text>
-            <p class=" mb-2">asasdashdgajhsdghjasdgjhasgdjhagsdjasasdashdgajhsdghjasdgjhasgdjhagsdjasasdashdgajhsdghjasdgjhasgdjhagsdjasasdashdgajhsdghjasdgjhasgdjhagsdjasasdashdgajhsdghjasdgjhasgdjhagsdjasasdashdgajhsdghjasdgjhasgdjhagsdjasasdashdgajhsdghjasdgjhasgdjhagsdjasasdashdgajhsdghjasdgjhasgdjhagsdjasasdashdgajhsdghjasdgjhasgdjhagsdjasasdashdgajhsdghjasdgjhasgdjhagsdjasasdashdgajhsdghjasdgjhasgdjhagsdjasasdashdgajhsdgh</p>
-            <span class="d-flex justify-end mr-3 text-orange-darken-2 text-h5 mb-1">}</span>
-            <v-divider :thickness="5" class="mb-2 mt-2"></v-divider>
-            <span class="ml-3 text-orange-darken-2 text-h5">{</span>
+            <p class="pb-5">asasdashdgajhsdghjasdgjhasgdjhagsdjasasdashdgajhsdghjasdgjhasgdjhagsdjasasdashdgajhsdghjasdgjhasgdjhagsdjasasdashdgajhsdghjasdgjhasgdjhagsdjasasdashdgajhsdghjasdgjhasgdjhagsdjasasdashdgajhsdghjasdgjhasgdjhagsdjasasdashdgajhsdghjasdgjhasgdjhagsdjasasdashdgajhsdghjasdgjhasgdjhagsdjasasdashdgajhsdghjasdgjhasgdjhagsdjasasdashdgajhsdghjasdgjhasgdjhagsdjasasdashdgajhsdghjasdgjhasgdjhagsdjasasdashdgajhsdgh</p>
+            <v-divider :thickness="5" class="pb-2"></v-divider>
             <v-list dense>
                 <v-list-item v-for="(item,index) in datatoSend" :key="index">
                     <v-list-item-subtitle class="d-flex justify-space-between">
@@ -58,7 +56,7 @@
                 </v-list-item>
             </v-list>
         </v-card-text>
-        <span class="d-flex justify-end mr-3 text-orange-darken-2 text-h5 mb-1">}</span>
+        <span class="d-flex justify-end mr-3 text-orange-darken-2 text-h5 mb-1"><v-icon>bi bi-alt</v-icon></span>
     </v-card>
 </template>
 
