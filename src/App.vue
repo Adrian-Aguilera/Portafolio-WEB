@@ -51,7 +51,7 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-main>
+    <v-main class="d-flex" style="align-items: center;">
       <v-container fluid class="d-flex justify-center">
         <router-view/>
       </v-container>
