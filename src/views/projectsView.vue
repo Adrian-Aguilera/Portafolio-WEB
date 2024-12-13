@@ -1,5 +1,5 @@
 <template>
-    <boxComponent></boxComponent>
+    <boxComponent class="mt-6" title="Projects"></boxComponent>
 </template>
 
 <script>

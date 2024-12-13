@@ -35,20 +35,19 @@
           <v-list-item-title>{{ item.seccion }}
           </v-list-item-title>
           <v-divider></v-divider>
-          <v-list-item-content>
-            <v-list-item
-              v-for="subItem in item.items"
-              :key="subItem.title"
-              :to="subItem.to"
-            >
-              <v-list-item-title>
-                <v-chip :color="theme === 'dark'? 'error':'primary'">
-                  <v-icon>{{ subItem.icon }}</v-icon>
-                </v-chip>
-                {{ subItem.title }}
-              </v-list-item-title>
-            </v-list-item>
-          </v-list-item-content>
+          
+          <v-list-item
+          v-for="subItem in item.items"
+          :key="subItem.title"
+          :to="subItem.to"
+        >
+          <v-list-item-title>
+            <v-chip :color="theme === 'dark'? 'error':'primary'">
+              <v-icon>{{ subItem.icon }}</v-icon>
+            </v-chip>
+            {{ subItem.title }}
+          </v-list-item-title>
+        </v-list-item>
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
