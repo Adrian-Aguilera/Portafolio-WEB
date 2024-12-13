@@ -1,7 +1,6 @@
 <template>
     <v-card width="90%" :variant="theme === 'dark' ? 'elevated' : 'outlined'" >
-        <v-card-title>{{ `
-            < ${title} />` }}
+        <v-card-title><span class="text-green-accent-3">~ ls </span>{{ `${title}` }}
         </v-card-title>
         <span class="ml-3 text-orange-darken-2 text-h5"><v-icon>bi bi-alt</v-icon></span>
         <v-card-text>
