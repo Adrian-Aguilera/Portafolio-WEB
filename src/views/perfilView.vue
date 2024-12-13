@@ -46,6 +46,10 @@ export default {
                         icon: 'bi bi-filetype-py',
                     },
                     {
+                        title: 'Django REST Framework',
+                        icon: 'bi bi-bounding-box',
+                    },
+                    {
                         title: 'Vue.js',
                         icon: 'mdi mdi-vuejs',
                     },
