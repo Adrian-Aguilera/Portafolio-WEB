@@ -16,6 +16,9 @@ jobs:
       id-token: write   # to verify the deployment originates from an appropriate source
 
     runs-on: ubuntu-latest
+    
+    env:
+      API_KEY: ${{ secrets.API_KEY }}
 
     steps:
     - uses: actions/checkout@v4
