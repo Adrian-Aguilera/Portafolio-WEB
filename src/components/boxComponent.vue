@@ -40,7 +40,7 @@
                                         <v-list>
                                             <v-list-item>
                                                 <v-list-item-title>
-                                                    <v-btn :variant="theme === 'dark' ? 'outlined' : 'tonal'" size="small" :href="item.raw.vsCode">
+                                                    <v-btn :variant="isDark === 'dark' ? 'outlined' : 'tonal'" size="small" :href="item.raw.vsCode">
                                                         <img height="20"
                                                             src="https://img.icons8.com/nolan/64/visual-studio-code-2019.png"
                                                             alt="visual-studio-code-2019" class="mr-1" />
@@ -165,14 +165,9 @@ export default {
             this.dialog = true
             this.github = github
             this.urlImage = image
-            console.log(this.github)
-            console.log(this.urlImage)
         },
     },
     computed: {
-        theme() {
-            return this.$store.getters.theme;
-        },
         isDark() {
             return this.$store.getters.isDark;
         }
