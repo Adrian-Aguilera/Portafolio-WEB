@@ -8,7 +8,10 @@ on:
     branches: [ "development" ]
   pull_request:
     branches: [ "development" ]
-
+env:
+  # Setting an environment variable with the value of a configuration variable
+  env_var: ${{ vars.ENV_CONTEXT_VAR }}
+  
 jobs:
   build:
     permissions:
@@ -16,9 +19,6 @@ jobs:
       id-token: write   # to verify the deployment originates from an appropriate source
 
     runs-on: ubuntu-latest
-    
-    env:
-      API_KEY: ${{ secrets.API_KEY }}
 
     steps:
     - uses: actions/checkout@v4
