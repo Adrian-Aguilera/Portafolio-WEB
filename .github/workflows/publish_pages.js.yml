@@ -8,7 +8,10 @@ on:
     branches: [ "development" ]
   pull_request:
     branches: [ "development" ]
-
+env:
+  # Setting an environment variable with the value of a configuration variable
+  VUE_APP_BASE_URL: hola
+  
 jobs:
   build:
     permissions:
