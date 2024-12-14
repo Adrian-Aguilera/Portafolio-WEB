@@ -68,7 +68,7 @@ export default {
         },
         Myemail: {
             type: String,
-            default: 'adrian.aguilera@gmail.com',
+            default: 'adrian.aguileragcm@gmail.com',
         },
     },
     data: () => ({
