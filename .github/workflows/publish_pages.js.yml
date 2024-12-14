@@ -12,18 +12,18 @@ on:
 jobs:
   build:
     permissions:
-          pages: write      # to deploy to Pages
-          id-token: write   # to verify the deployment originates from an appropriate source
-          
+      pages: write      # to deploy to Pages
+      id-token: write   # to verify the deployment originates from an appropriate source
+
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v4
     - name: Instalar node
-      uses: actions/setup-node@v4
-    - run: npm ci #es una variacion de npm install
+      uses: actions/setup-node@v3
+    - run: npm ci
     - run: npm run build --if-present
-    - name: Subir Artefacto
+    - name: Subir artefacto
       uses: actions/upload-pages-artifact@v3.0.1
       with:
         path: ./dist
