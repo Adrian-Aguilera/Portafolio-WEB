@@ -1,5 +1,5 @@
 <template>
-    <v-card width="90%" :variant="theme === 'dark' ? 'elevated' : 'outlined'" >
+    <v-card width="90%" :variant="isDark ? 'elevated' : 'outlined'" >
         <v-card-title><span class="text-green-accent-3">~ ls </span>{{ `${title}` }}
         </v-card-title>
         <span class="ml-3 text-orange-darken-2 text-h5"><v-icon>bi bi-alt</v-icon></span>
@@ -23,14 +23,16 @@
                                 style="align-items: center;"
                             >
                                 <v-slide-group-item >
-                                    <v-btn :variant="theme === 'dark' ? 'outlined' : 'tonal'" size="small" class="mr-2"
-                                        :href="item.raw.github">
+                                    <v-btn :variant="isDark ? 'outlined' : 'tonal'" size="small" class="mr-2"
+                                        @click="seendImage(item.raw.urlImage, item.raw.github)"
+                                    >
                                         <v-icon icon="mdi-github" class="mr-1"></v-icon>
-                                        github • repository
+                                        github • see image
                                     </v-btn>
+
                                     <v-menu>
                                         <template v-slot:activator="{ props }">
-                                            <v-btn :variant="theme === 'dark' ? 'outlined' : 'tonal'" size="small"
+                                            <v-btn :variant="isDark ? 'outlined' : 'tonal'" size="small"
                                                 v-bind="props" class="mr-2">
                                                 <v-icon icon="bi bi-caret-down"></v-icon>
                                             </v-btn>
@@ -103,6 +105,33 @@
         </v-card-text>
         <span class="d-flex justify-end mr-3 text-orange-darken-2 text-h5 mb-1"><v-icon>bi bi-alt</v-icon></span>
     </v-card>
+    <v-dialog
+      v-model="dialog"
+      width="auto"
+      opacity="0.1"
+    >
+      <v-card
+        width="600"
+        :variant="isDark ? 'elevated' : 'outlined'"
+        title="projects information"
+        class="text-roboto"
+      >
+        <v-card-text>
+            <span class="text-green-accent-3 d-block">~ ls projects/image </span>
+            <span class="text-grey-lighten-1 mb-2">~ image of project</span>
+            <v-img :src="urlImage" width="100%"></v-img>
+            <v-divider :thickness="5" class="mb-4 mt-4"></v-divider>
+            <v-btn
+                variant="outlined"
+                prepend-icon="mdi mdi-github"
+                size="small"
+                target="_blank"
+                :href="github"
+            > go to repository of github</v-btn>
+        </v-card-text>
+
+        </v-card>
+    </v-dialog>
 </template>
 
 <script>
@@ -124,16 +153,28 @@ export default {
     },
     data: () => ({
         itemsPerPage: 2,
-
+        dialog: false,
+        github: null,
+        urlImage: null,
     }),
     methods: {
         onClickSeeAll() {
             this.itemsPerPage = this.itemsPerPage === 4 ? this.mice.length : 4
         },
+        seendImage(image, github) {
+            this.dialog = true
+            this.github = github
+            this.urlImage = image
+            console.log(this.github)
+            console.log(this.urlImage)
+        },
     },
     computed: {
         theme() {
             return this.$store.getters.theme;
+        },
+        isDark() {
+            return this.$store.getters.isDark;
         }
     },
 }

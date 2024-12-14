@@ -1,5 +1,5 @@
 <template>
-    <boxComponent class="mt-6" title="Projects" :content="content" :data="datatoSend"></boxComponent>
+    <boxComponent title="Projects" :content="content" :data="datatoSend"></boxComponent>
 </template>
 
 <script>
@@ -15,6 +15,7 @@ export default {
                 name: 'Portafolio Web',
                 description: "This is a project that I'm currently working on. It's a web application that allows see the portfolio of my work.",
                 github: 'https://github.com/Adrian-Aguilera',
+                urlImage: 'https://github-readme-stats.vercel.app/api?username=Adrian-Aguilera&show_icons=true&theme=dracula&locale=en&hide_border=false',
                 vsCode: 'https://github.dev/Adrian-Aguilera/Portafolio-WEB',
                 technologies: [
                     {
