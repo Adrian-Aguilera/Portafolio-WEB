@@ -22,7 +22,8 @@ jobs:
 
       
     steps:
-    - name: ${{ vars.VUE_APP_BASE_URL }}
+    - name: variable de entorno
+      run:  ${{ vars.VUE_APP_BASE_URL }}
     - uses: actions/checkout@v4
     - name: Instalar node
       uses: actions/setup-node@v3
