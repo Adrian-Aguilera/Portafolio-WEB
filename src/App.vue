@@ -8,11 +8,11 @@
           </v-chip>
         </v-app-bar-nav-icon>
       </template>
-      <v-app-bar-title @click="drawer = !drawer" class="text-roboto text-h5">
+      <v-app-bar-title  class="text-roboto text-h5">
         <span class="text-green-accent-3">~ </span>
-        <v-icon :icon="drawer ? 'bi bi-layout-sidebar-inset' : 'bi bi-layout-sidebar-inset-reverse'" size="small"></v-icon>
+        <v-icon @click="drawer = !drawer" :icon="drawer ? 'bi bi-layout-sidebar-inset' : 'bi bi-layout-sidebar-inset-reverse'" size="small"></v-icon>
       </v-app-bar-title>
-      <v-app-bar-title @click="drawer = !drawer" class="text-roboto">
+      <v-app-bar-title class="text-roboto">
         {{ "< Portafolio />" }}
         <v-badge floating color="success" content="beta">
         </v-badge>

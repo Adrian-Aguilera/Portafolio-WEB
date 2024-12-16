@@ -8,7 +8,7 @@
                 {{ content }}
             </p>
             <v-divider :thickness="5" class="pb-4"></v-divider>
-            <v-data-iterator :items="items" :items-per-page="itemsPerPage">
+            <v-data-iterator :items="items" :items-per-page="itemsPerPage" disable-sort>
                 <template v-slot:default="{ items }">
                     <v-timeline side="end">
                         <v-timeline-item
