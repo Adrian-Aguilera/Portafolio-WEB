@@ -23,7 +23,7 @@ jobs:
       
     steps:
     - name: variable de entorno
-      run:  ${{ vars.VUE_APP_BASE_URL }}
+      run: echo "VUE_APP_BASE_URL, $VUE_APP_BASE_URL"
     - uses: actions/checkout@v4
     - name: Instalar node
       uses: actions/setup-node@v3
