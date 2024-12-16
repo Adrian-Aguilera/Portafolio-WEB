@@ -10,7 +10,7 @@ export default {
         PerfilComponent
     },
     data: () => ({
-        myself: "Hi 👋! My name is Adrian Aguilera and I'm a Python developer from El Salvador" ,
+        myself: "Hi 👋! My name is Adrian Aguilera and I'm a Python developer from El Salvador. I am a developer specializing mainly in Python, building and developing microservices with Django REST Framework. Website development with Vue.js framework. Scripting development using Python. Enthusiast and AI developer using libraries like ollama",
         skills: [
             {
                 title: 'Stacks',

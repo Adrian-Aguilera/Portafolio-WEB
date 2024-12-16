@@ -47,8 +47,8 @@
                 <span class="text-green-accent-3 d-block">~ ls -skills </span>
                 <div>
                     <v-card v-for="(skill, index) in skills" :key="index" variant="text" :subtitle="`~ ${skill.title} development`">
-                        <v-card-text >
-                            <v-list class="d-flex">
+                        <v-card-text>
+                            <v-list class="d-flex flex-wrap">
                                 <v-list-item v-for="(technology, index) in skill.technologies" :key="index">
                                     <v-list-item-title>
                                         <v-chip color="success" variant="tonal">
@@ -57,13 +57,11 @@
                                         </v-chip>
                                     </v-list-item-title>
                                 </v-list-item>
-                            </v-list>
-                            <v-list class="d-flex">
-                                <v-list-item v-for="(framework, index) in skill.frameworks" :key="index">
+                                <v-list-item v-for="(technology, index) in skill.frameworks" :key="index">
                                     <v-list-item-title>
                                         <v-chip color="success" variant="tonal">
-                                            <v-icon class="mr-1">{{ framework.icon }}</v-icon>
-                                            {{ framework.title }}
+                                            <v-icon class="mr-1">{{ technology.icon }}</v-icon>
+                                            {{ technology.title }}
                                         </v-chip>
                                     </v-list-item-title>
                                 </v-list-item>
