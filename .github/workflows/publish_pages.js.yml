@@ -10,7 +10,7 @@ on:
     branches: [ "development" ]
 env:
   # Setting an environment variable with the value of a configuration variable
-  VUE_APP_BASE_URL: hola
+  VUE_APP_BASE_URL: ${{ vars.VUE_APP_BASE_URL }}
   
 jobs:
   build:
