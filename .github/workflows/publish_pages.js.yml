@@ -8,7 +8,9 @@ on:
     branches: [ "development" ]
   pull_request:
     branches: [ "development" ]
-
+    
+env:
+  VUE_APP_BASE_URL: ${{ vars.VUE_APP_BASE_URL }}
   
 jobs:
   build:
@@ -17,11 +19,10 @@ jobs:
       id-token: write   # to verify the deployment originates from an appropriate source
 
     runs-on: ubuntu-latest
-    env:
-      # Setting an environment variable with the value of a configuration variable
-      VUE_APP_BASE_URL: ${{ secrets.VUE_APP_BASE_URL }}
+
       
     steps:
+    - name: ${{ vars.VUE_APP_BASE_URL }}
     - uses: actions/checkout@v4
     - name: Instalar node
       uses: actions/setup-node@v3
