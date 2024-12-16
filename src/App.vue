@@ -4,10 +4,14 @@
       <template v-slot:prepend>
         <v-app-bar-nav-icon >
           <v-chip color="warning" @click="changeTheme" variant="outlined">
-            <v-icon icon="bi bi-braces-asterisk"></v-icon>
+            <v-icon :icon="isDark ? 'mdi-weather-sunny' : 'mdi-weather-night'"></v-icon>
           </v-chip>
         </v-app-bar-nav-icon>
       </template>
+      <v-app-bar-title @click="drawer = !drawer" class="text-roboto text-h5">
+        <span class="text-green-accent-3">~ </span>
+        <v-icon :icon="drawer ? 'bi bi-layout-sidebar-inset' : 'bi bi-layout-sidebar-inset-reverse'" size="small"></v-icon>
+      </v-app-bar-title>
       <v-app-bar-title @click="drawer = !drawer" class="text-roboto">
         {{ "< Portafolio />" }}
         <v-badge floating color="success" content="beta">
@@ -17,7 +21,7 @@
         <div v-for="item in appbar" :key="item.contacto" class="mr-4">
           <v-tooltip :text="item.contacto" location="bottom">
             <template v-slot:activator="{ props }">
-              <v-btn v-bind="props" :href="item.to" variant="outlined">
+              <v-btn v-bind="props" :href="item.to" variant="outlined" target="_blank">
                 <v-icon>{{ item.icon }}</v-icon>
               </v-btn>
             </template>
@@ -142,6 +146,9 @@ export default {
   computed: {
     theme() {
       return this.$store.getters.theme;
+    },
+    isDark() {
+      return this.$store.getters.isDark;
     },
   },
 }

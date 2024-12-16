@@ -86,11 +86,9 @@
                         icon="bi bi-caret-left-fill"
                         variant="tonal"
                         rounded
+                        class="mr-2"
                         @click="prevPage"
                       ></v-btn>
-                      <div class="mx-2 text-caption">
-                        Page {{ page }} of {{ pageCount }}
-                      </div>
                       <v-btn
                         :disabled="page >= pageCount"
                         density="comfortable"

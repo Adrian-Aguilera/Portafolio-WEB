@@ -24,8 +24,22 @@
             <v-card-text>
                 <p class="pb-5">
                     <span class="text-green-accent-3 d-block">~ dir/myself </span>
-                    <span >~ {{ myself }} </span>
+                    <span class="d-block ml-3" >$ {{ myself }} </span>
                 </p>
+                <!--redes sociales-->
+                <span class="text-green-accent-3 d-block">~ ls -social media </span>
+                <v-card-text>
+                    <v-list class="d-flex">
+                        <v-list-item  v-for="(social, index) in socials" :key="index">
+                            <v-list-item-title>
+                                <v-btn variant="outlined" class="mr-2" :href="social.url" target="_blank">
+                                    <v-icon class="mr-1">{{ social.icon }}</v-icon>
+                                     {{ social.title }}
+                                </v-btn>
+                            </v-list-item-title>
+                        </v-list-item>
+                    </v-list>
+                </v-card-text>
             </v-card-text>
             <v-divider :thickness="5" class="pb-4"></v-divider>
             <v-card-text >
@@ -97,6 +111,10 @@ export default {
             type: Array,
             default: () => [],
         },
+        socials: {
+            type: Array,
+            default: () => [],
+        }
     },
     data: () => ({
     }),

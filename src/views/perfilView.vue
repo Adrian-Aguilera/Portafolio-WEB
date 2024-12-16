@@ -1,5 +1,5 @@
 <template>
-    <PerfilComponent :myself="myself" title="Perfil" :skills="skills" :gitHubActivity="gitHubActivity"></PerfilComponent>
+    <PerfilComponent :myself="myself" title="Perfil" :skills="skills" :gitHubActivity="gitHubActivity" :socials="socials" />
 </template>
 
 <script>
@@ -10,7 +10,7 @@ export default {
         PerfilComponent
     },
     data: () => ({
-        myself: "I am a developer specializing mainly in Python, building and developing microservices with Django REST Framework. Website development with Vue.js framework. Scripting development using Python. Enthusiast and AI developer using libraries like ollama",
+        myself: "Hi 👋! My name is Adrian Aguilera and I'm a Python developer from El Salvador" ,
         skills: [
             {
                 title: 'Stacks',
@@ -83,6 +83,24 @@ export default {
             {
                 avatar: 'https://github-readme-stats.vercel.app/api?username=Adrian-Aguilera&show_icons=true&theme=dracula&locale=en&hide_border=false',
             },
+        ],
+        socials: [
+            {
+                icon: 'mdi mdi-linkedin',
+                title: 'LinkedIn',
+                url: 'https://www.linkedin.com/in/adri%C3%A1n-aguilera/',
+            },
+            {
+                icon: 'mdi mdi-github',
+                title: 'Github',
+                url: 'https://github.com/Adrian-Aguilera',
+            },
+            {
+                icon: 'bi bi-link-45deg',
+                title: 'Upwork',
+                url: 'https://upwork.com/freelancers/adriana43',
+            },
+
         ],
     }),
     methods: {}
