@@ -8,9 +8,9 @@ on:
     branches: [ "development" ]
   pull_request:
     branches: [ "development" ]
+    
 env:
-  # Setting an environment variable with the value of a configuration variable
-  VUE_APP_BASE_URL: hola
+  VUE_APP_BASE_URL: ${{ vars.VUE_APP_BASE_URL }}
   
 jobs:
   build:
@@ -20,7 +20,10 @@ jobs:
 
     runs-on: ubuntu-latest
 
+      
     steps:
+    - name: variable de entorno
+      run: echo "VUE_APP_BASE_URL, $VUE_APP_BASE_URL"
     - uses: actions/checkout@v4
     - name: Instalar node
       uses: actions/setup-node@v3
