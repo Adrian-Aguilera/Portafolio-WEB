@@ -11,6 +11,7 @@
       <v-app-bar-title  class="text-roboto text-h5">
         <span class="text-green-accent-3">~ </span>
         <v-icon @click="drawer = !drawer" :icon="drawer ? 'bi bi-layout-sidebar-inset' : 'bi bi-layout-sidebar-inset-reverse'" size="small"></v-icon>
+        {{ base }}
       </v-app-bar-title>
       <v-app-bar-title class="text-roboto">
         {{ "< Portafolio />" }}
@@ -139,9 +140,6 @@ export default {
     changeTheme() {
       this.$store.dispatch('setTheme', this.$store.getters.theme === 'dark' ? 'light' : 'dark');
     },
-    getColorTheme() {
-      this.colorTheme = this.$store.getters.theme;
-    },
   },
   computed: {
     theme() {
@@ -149,6 +147,9 @@ export default {
     },
     isDark() {
       return this.$store.getters.isDark;
+    },
+    base() {
+      return this.$store.getters.base;
     },
   },
 }
