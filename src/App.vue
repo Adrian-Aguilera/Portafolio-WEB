@@ -1,13 +1,6 @@
 <template>
   <v-app :theme="theme" class="text-roboto">
     <v-app-bar :elevation="0" flat>
-      <template v-slot:prepend>
-        <v-app-bar-nav-icon >
-          <v-chip color="warning" @click="changeTheme" variant="outlined">
-            <v-icon :icon="isDark ? 'mdi-weather-sunny' : 'mdi-weather-night'"></v-icon>
-          </v-chip>
-        </v-app-bar-nav-icon>
-      </template>
       <v-app-bar-title  class="text-roboto text-h5">
         <span class="text-green-accent-3">~ </span>
         <v-icon @click="drawer = !drawer" :icon="drawer ? 'bi bi-layout-sidebar-inset' : 'bi bi-layout-sidebar-inset-reverse'" size="small"></v-icon>

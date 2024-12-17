@@ -24,7 +24,7 @@
                             >
                                 <v-slide-group-item >
                                     <v-btn :variant="isDark ? 'outlined' : 'tonal'" size="small" class="mr-2"
-                                        @click="seendImage(item.raw.urlImage, item.raw.github)"
+                                        @click="seendImage(item.raw.imagen, item.raw.github)"
                                     >
                                         <v-icon icon="mdi-github" class="mr-1"></v-icon>
                                         github • see image
@@ -63,15 +63,15 @@
                         >
                             <v-slide-group-item >
                                 <div class="d-flex">
-                                    <div v-for="(status, index) in item.raw.status" :key="index">
-                                        <v-btn :color="status.color" variant="tonal" class="mr-2">
-                                            <v-icon :icon="status.icon" class="mr-1"></v-icon>
+                                    <div v-for="(status, index) in item.raw.Estado" :key="index">
+                                        <v-btn color="success" variant="tonal" class="mr-2">
+                                            <v-icon icon="bi bi-code-slash" class="mr-1"></v-icon>
                                             {{ status.title }}
                                         </v-btn>
                                     </div>
                                     <v-chip color="error" variant="tonal">
                                         <v-icon class="mr-1">bi bi-app</v-icon>
-                                        {{ item.raw.date }}
+                                        {{ item.raw.date }} AGO UPDATED
                                     </v-chip>
                                 </div>
                             </v-slide-group-item>
