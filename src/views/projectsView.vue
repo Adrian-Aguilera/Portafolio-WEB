@@ -18,7 +18,19 @@ export default {
         getProjects() {
             api.get('api/v1/projects')
             .then((response) => {
-                this.datatoSend = response.data.data;
+                const data = response.data.data.map((item) => {
+                    return {
+                        name: item.name,
+                        description: item.description,
+                        technologies: item.technologies,
+                        date: item.date,
+                        imagen: `${this.$store.getters.base}/api/v1${item.imagen}`,
+                        github: item.github,
+                        vsCode: item.vsCode,
+                        Estado: item.Estado,
+                    }
+                })
+                this.datatoSend = data;
             })
             .catch((error) => {
                 console.log(error);
