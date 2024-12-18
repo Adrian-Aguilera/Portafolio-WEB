@@ -29,7 +29,7 @@
                             <div>
                                 <v-chip :color="isDark ? 'green-accent-3' : 'error'" variant="tonal">
                                     <v-icon class="mr-1" >mdi-calendar-clock</v-icon>
-                                    {{ `${item.raw.fecha[0].inicio}` }} ~ {{ `${item.raw.fecha[0].fin}` }}
+                                    {{ `${item.raw.inicio}` }} ~ {{ `${item.raw.fin}` }}
                                 </v-chip>
                             </div>
                           </v-card-subtitle>
@@ -39,11 +39,12 @@
                             </p>
                             <v-divider :thickness="5" class="pb-4"></v-divider>
                             <span class="text-green-accent-3">~ ls </span><span class="text-grey-lighten-1"> Featured tasks</span>
-                            <v-list class="d-flex" >
+                            <v-list >
                                 <v-list-item v-for="(tarea, index) in item.raw.tareas" :key="index">
-                                    <v-list-item-title>
-                                        • {{ tarea.tarea }}
-                                    </v-list-item-title>
+                                    <v-list-item-subtitle>
+                                        <span class="text-green-accent-3">~ // </span>  {{ tarea.tarea }}
+
+                                    </v-list-item-subtitle>
                                 </v-list-item>
                             </v-list>
                           </v-card-text>
