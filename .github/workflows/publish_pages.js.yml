@@ -10,7 +10,7 @@ on:
     branches: [ "development" ]
     
 env:
-  VUE_APP_BASE_URL: https://portafolio-backend-4or0.onrender.com/
+  VUE_APP_BASE_URL: https://portafolio-backend-4or0.onrender.com
   
 jobs:
   build:
