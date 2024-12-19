@@ -166,7 +166,7 @@ export default {
       this.$store.dispatch('setTheme', this.$store.getters.theme === 'dark' ? 'light' : 'dark');
     },
     async activateBackend() {
-      const data = await api.get(`${this.$store.getters.base}api/v1/activate`);
+      const data = await api.get(`${this.$store.getters.base}/api/v1/activate`);
       if (data.status === 200) {
         this.dialog = false;
       }
