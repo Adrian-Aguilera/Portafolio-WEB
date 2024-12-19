@@ -10,11 +10,12 @@ on:
     branches: [ "development" ]
     
 env:
-  VUE_APP_BASE_URL: https://portafolio-backend-4or0.onrender.com/
+  VUE_APP_BASE_URL: https://portafolio-backend-4or0.onrender.com
   
 jobs:
   build:
     permissions:
+      contents: read
       pages: write      # to deploy to Pages
       id-token: write   # to verify the deployment originates from an appropriate source
 
