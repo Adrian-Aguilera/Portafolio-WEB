@@ -54,6 +54,39 @@
       <v-container fluid class="d-flex justify-center">
         <router-view/>
       </v-container>
+      <v-dialog
+        v-model="dialog"
+        max-width="320"
+        persistent
+        transition="dialog-bottom-transition"
+        opacity="0.1"
+      >
+      <v-list
+        class="py-2"
+        color="primary"
+        elevation="12"
+        rounded="lg"
+      >
+        <v-list-item
+          title="Activating backend..."
+        >
+          <template v-slot:prepend>
+            <div class="pe-4">
+              <v-icon color="success" size="x-large" icon="bi bi-hdd-rack-fill"></v-icon>
+            </div>
+          </template>
+
+          <template v-slot:append>
+            <v-progress-circular
+              color="primary"
+              indeterminate="disable-shrink"
+              size="25"
+              width="3"
+            ></v-progress-circular>
+          </template>
+        </v-list-item>
+      </v-list>
+    </v-dialog>
       <v-footer
         app
         style="justify-content: flex-end;"
@@ -65,12 +98,11 @@
         </v-badge>
       </v-footer>
     </v-main>
-
   </v-app>
 </template>
 
 <script>
-
+import api from './api/api';
 export default {
   name: 'App',
 
@@ -127,10 +159,20 @@ export default {
     colorTheme: null,
     drawer: null,
     rail: false,
+    dialog: true
   }),
   methods: {
     changeTheme() {
       this.$store.dispatch('setTheme', this.$store.getters.theme === 'dark' ? 'light' : 'dark');
+    },
+    async activateBackend() {
+      const data = await api.get(`${this.$store.getters.base}api/v1/activate`);
+      if (data.status === 200) {
+        this.dialog = false;
+      }
+      else {
+        this.dialog = true;
+      }
     },
   },
   computed: {
@@ -143,6 +185,12 @@ export default {
     base() {
       return this.$store.getters.base;
     },
+    activate() {
+      return this.activateBackend();
+    }
+  },
+  created() {
+    this.activateBackend();
   },
 }
 </script>
