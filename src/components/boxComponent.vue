@@ -12,8 +12,12 @@
                 <template v-slot:default="{ items }">
                     <v-list-item v-for="(item, index) in items" :key="index">
                         <v-divider :thickness="5" v-if="index !== 0" class="mt-2"></v-divider>
+                        <p class="text-grey-lighten-1">~ Technologies</p>
                         <v-list-item-subtitle class="d-flex justify-space-between">
                             <v-breadcrumbs :items="item.raw.technologies">
+                                <template v-slot:prepend>
+                                    <v-icon icon="bi bi-bezier" size="small" class="mr-2"></v-icon>
+                                  </template>
                                 <template v-slot:title="{ item }">
                                     {{ item.title }}
                                 </template>
