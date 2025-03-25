@@ -159,7 +159,7 @@ export default {
     colorTheme: null,
     drawer: null,
     rail: false,
-    dialog: true
+    dialog: false
   }),
   methods: {
     changeTheme() {
@@ -184,13 +184,7 @@ export default {
     },
     base() {
       return this.$store.getters.base;
-    },
-    activate() {
-      return this.activateBackend();
     }
-  },
-  created() {
-    this.activateBackend();
   },
 }
 </script>
