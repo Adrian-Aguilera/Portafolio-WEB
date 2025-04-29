@@ -58,8 +58,8 @@ export default {
                         icon: 'mdi mdi-vuetify',
                     },
                     {
-                        title: 'react',
-                        icon: 'mdi mdi-react',
+                        title: 'Scripting',
+                        icon: 'mdi mdi-script-text',
                     },
                     {
                         title: 'ionic',
