@@ -1,6 +1,7 @@
 import UnoCSS from 'unocss/vite';
 import { fileURLToPath, URL } from 'node:url'
 import Vue from '@vitejs/plugin-vue'
+import VueDevTools from 'vite-plugin-vue-devtools'
 import Fonts from 'unplugin-fonts/vite'
 import { defineConfig } from 'vite'
 import Vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
@@ -10,7 +11,7 @@ export default defineConfig({
   base: '/Portafolio-WEB/',
   plugins: [Vue({
     template: { transformAssetUrls },
-  }), // https://github.com/vuetifyjs/vuetify-loader/tree/master/packages/vite-plugin#readme
+  }), VueDevTools(), // https://github.com/vuetifyjs/vuetify-loader/tree/master/packages/vite-plugin#readme
   Vuetify({
     autoImport: true,
     styles: {

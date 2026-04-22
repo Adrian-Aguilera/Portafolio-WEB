@@ -76,7 +76,7 @@
                     >
                         <v-slide-group-item >
                             <v-card-text v-for="(activity, index) in gitHubActivity" :key="index" >
-                                <v-img :src="activity.avatar" width="350"></v-img>
+                                <v-img :src="activity.avatar" width="350" height="150"></v-img>
                             </v-card-text>
                         </v-slide-group-item>
                     </v-slide-group>

@@ -12,7 +12,6 @@
                 <template v-slot:default="{ items }">
                     <v-list-item v-for="(item, index) in items" :key="index">
                         <v-divider :thickness="5" v-if="index !== 0" class="mt-2"></v-divider>
-                        <p class="text-grey-lighten-1">~ Technologies</p>
                         <v-list-item-subtitle class="d-flex justify-space-between">
                             <v-breadcrumbs :items="item.raw.technologies" class="mb-0">
                                 <template v-slot:prepend>
@@ -21,6 +20,7 @@
                                 <template v-slot:title="{ item }">
                                     {{ item.title }}
                                 </template>
+                                <p class="text-grey-lighten-1 ml-3">~ Technologies</p>
                             </v-breadcrumbs>
                             <v-slide-group show-arrows style="align-items: center;">
                                 <v-slide-group-item>
