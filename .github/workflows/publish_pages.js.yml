@@ -8,6 +8,7 @@ on:
     
 env:
   VUE_APP_BASE_URL: https://portafolio-backend-4or0.onrender.com
+  VITE_BASE: /Portafolio-WEB/
   
 jobs:
   build:
@@ -21,6 +22,8 @@ jobs:
     steps:
     - name: variable de entorno
       run: echo "VUE_APP_BASE_URL, $VUE_APP_BASE_URL"
+    - name: variable de url
+      run: echo "VITE_BASE, $VITE_BASE"
       
     - uses: actions/checkout@v4
     
