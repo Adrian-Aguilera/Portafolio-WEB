@@ -1,35 +1,51 @@
 {
-  "name": "portafolio",
-  "version": "0.1.0",
+  "name": "portfolio_web-v2",
   "private": true,
+  "type": "module",
+  "version": "0.0.0",
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build --publicPath /Portafolio-WEB/",
-    "lint": "vue-cli-service lint"
+    "dev": "vite",
+    "build": "run-p type-check \"build-only {@}\" --",
+    "preview": "vite preview",
+    "build-only": "vite build",
+    "type-check": "vue-tsc --build --force",
+    "lint": "eslint",
+    "lint:fix": "eslint --fix",
+    "mcp": "ruler apply",
+    "mcp:revert": "ruler revert"
   },
   "dependencies": {
-    "@mdi/font": "5.9.55",
-    "axios": "^1.7.9",
-    "core-js": "^3.8.3",
-    "github-calendar": "^2.3.4",
-    "roboto-fontface": "*",
-    "vue": "^3.2.13",
-    "vue-router": "^4.0.3",
-    "vuetify": "^3.0.0-beta.0",
-    "vuex": "^4.0.0",
-    "webfontloader": "^1.0.0"
+    "@fontsource/roboto": "^5.2.10",
+    "@fontsource/roboto-mono": "^5.2.8",
+    "@mdi/font": "7.4.47",
+    "pinia": "^3.0.4",
+    "vue": "^3.5.30",
+    "vue-i18n": "^11.3.0",
+    "vue-router": "^5.0.4",
+    "vuetify": "^4.0.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.16",
-    "@babel/eslint-parser": "^7.12.16",
-    "@vue/cli-plugin-babel": "~5.0.0",
-    "@vue/cli-plugin-eslint": "~5.0.0",
-    "@vue/cli-plugin-router": "~5.0.0",
-    "@vue/cli-plugin-vuex": "~5.0.0",
-    "@vue/cli-service": "~5.0.0",
-    "eslint": "^7.32.0",
-    "eslint-plugin-vue": "^8.0.3",
-    "vue-cli-plugin-vuetify": "~2.5.8",
-    "webpack-plugin-vuetify": "^2.0.0-alpha.0"
+    "@intellectronica/ruler": "^0.3.37",
+    "@tsconfig/node22": "^22.0.5",
+    "@types/node": "^24.12.0",
+    "@unocss/transformer-directives": "^66.6.6",
+    "@vitejs/plugin-vue": "^6.0.5",
+    "@vue/tsconfig": "^0.9.0",
+    "eslint": "^9.39.4",
+    "eslint-config-vuetify": "^4.3.4",
+    "npm-run-all2": "^8.0.4",
+    "sass-embedded": "^1.98.0",
+    "typescript": "~5.9.3",
+    "unocss": "^66.6.6",
+    "unocss-preset-vuetify": "^0.2.1",
+    "unplugin-fonts": "^1.4.0",
+    "vite": "^8.0.0",
+    "vite-plugin-vuetify": "^2.1.3",
+    "vue-tsc": "^3.2.5"
+  },
+  "overrides": {
+    "unplugin-fonts": {
+      "vite": "^8.0.0"
+    }
   }
 }
