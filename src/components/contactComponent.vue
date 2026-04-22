@@ -1,5 +1,5 @@
 <template>
-    <v-card width="90%" :variant="theme === 'dark' ? 'elevated' : 'outlined'" >
+    <v-card width="90%" :variant="themeValue === 'dark' ? 'elevated' : 'outlined'" >
         <v-card-title><span class="text-green-accent-3">~ cd </span>{{ `${title}` }}
         </v-card-title>
         <span class="ml-3 text-orange-darken-2 text-h5"><v-icon>bi bi-alt</v-icon></span>
@@ -53,69 +53,55 @@
         <span class="d-flex justify-end mr-3 text-orange-darken-2 text-h5 mb-1"><v-icon>bi bi-alt</v-icon></span>
     </v-card>
 </template>
+<script setup lang="ts">
+import { useTheme } from 'vuetify';
+import { ref, computed } from 'vue';
 
-<script>
-export default {
-    name: 'contactComponent',
-    props: {
-        title: {
-            type: String,
-            default: 'contact',
-        },
-        Myname: {
-            type: String,
-            default: 'Adrian Aguilera',
-        },
-        Myemail: {
-            type: String,
-            default: 'adrian.aguileragcm@gmail.com',
-        },
+const props = defineProps({
+    title: {
+        type: String,
+        default: 'contact',
     },
-    data: () => ({
-        rules: {
-            required: value => !!value || 'Required.',
-            email: value => {
-                const pattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-                return pattern.test(value) || 'Invalid e-mail.'
-            },
-        },
-        email: '',
-        message: '',
-        name: '',
-    }),
-    methods: {
-        async sendEmail() {
-            const isValid = await this.validate()
-            if (isValid) {
-                    const { email } = this
-                const response = await fetch(`https://api.example.com/send-email`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({ email }),
-                })
-
-                if (response.ok) {
-                    alert('Email sent!')
-                } else {
-                    alert('Failed to send email')
-                }
-            } else {
-                alert('Please fill in all the required fields')
-            }
-
-        },
-        async validate () {
-            const { valid } = await this.$refs.form.validate()
-
-            if (valid) alert('Form is valid')
-        },
+    Myname: {
+        type: String,
+        default: 'Adrian Aguilera',
     },
-    computed: {
-        theme() {
-            return this.$store.getters.theme;
-        }
+    Myemail: {
+        type: String,
+        default: 'adrian.aguileragcm@gmail.com',
     },
+})
+
+const form = ref()
+const theme = useTheme()
+const themeValue = computed(() => {
+    return theme.global.name.value;
+});
+
+
+const rules = ref({
+    required: (value: any) => !!value || 'Required.',
+    email: (value: any) => {
+        const pattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+        return pattern.test(value) || 'Invalid e-mail.'
+    }
+})
+const email = ref('')
+const message = ref('')
+const name = ref('')
+
+const validate = async () => {
+    const { valid } = await form.value.validate()
+
+    if (valid) alert('Form is valid')
+}
+
+const sendEmail = () => {
+    const isvalid = form.value.validate()
+    if (!isvalid) return;
+
+    const mailtoLink = `mailto:${props.Myemail}?subject=Contact from ${name.value}&body=${message.value
+        }%0D%0A%0D%0AFrom: ${email.value}`;
+    window.location.href = mailtoLink;
 }
 </script>

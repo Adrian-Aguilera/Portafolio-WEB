@@ -1,5 +1,5 @@
 <template>
-    <v-card width="90%" :variant="theme === 'dark' ? 'elevated' : 'outlined'" >
+    <v-card width="90%" :variant="themeValue === 'dark' ? 'elevated' : 'outlined'" >
         <v-card-title><span class="text-green-accent-3">~ cd </span>{{ `${title}` }}
         </v-card-title>
         <span class="ml-3 text-orange-darken-2 text-h5"><v-icon>bi bi-alt</v-icon></span>
@@ -17,7 +17,7 @@
                         dot-color="green-accent-3"
                         size="small"
                       >
-                        <v-card class="pa-2" :variant="isDark ? 'outlined' : 'outlined'" width="90%">
+                        <v-card class="pa-2" :variant="themeValue === 'dark' ? 'outlined' : 'outlined'" width="90%">
                           <v-card-title>
                             <span>$ </span>{{ `${item.raw.cargo}` }}
                           </v-card-title>
@@ -27,7 +27,7 @@
                                 <span class="justify-center">{{ `${item.raw.empresa}` }} </span>
                             </div>
                             <div>
-                                <v-chip :color="isDark ? 'green-accent-3' : 'error'" variant="tonal">
+                                <v-chip :color="themeValue === 'dark' ? 'green-accent-3' : 'error'" variant="tonal">
                                     <v-icon class="mr-1" >mdi-calendar-clock</v-icon>
                                     {{ `${item.raw.inicio}` }} ~ {{ `${item.raw.fin}` }}
                                 </v-chip>
@@ -79,36 +79,40 @@
         <span class="d-flex justify-end mr-3 text-orange-darken-2 text-h5 mb-1"><v-icon>bi bi-alt</v-icon></span>
     </v-card>
 </template>
-<script>
-export default {
-    name: 'LineTimeComponent',
-    props: {
-        title: {
-            type: String,
-            default: 'works',
-        },
-        content: {
-            type: String,
-            default: 'This is a box component',
-        },
-        items: {
-            type: Array,
-            default: () => [],
-        },
-    },
-    data: () => ({
-        itemsPerPage: 2,
-    }),
-    methods: {
-        
-    },
-    computed: {
-        theme() {
-            return this.$store.getters.theme;
-        },
-        isDark() {
-            return this.$store.getters.isDark;
-        }
-    },
+
+<script lang="ts" setup>
+import { computed, ref } from 'vue';
+import { useTheme } from 'vuetify';
+
+interface Item {
+    cargo: string;
+    empresa: string;
+    descripcion: string;
+    inicio: string;
+    fin: string;
+    tareas: Tarea[];
 }
+
+interface Tarea {
+    tarea: string;
+}
+
+const props = defineProps({
+    title: {
+        type: String,
+        default: 'works',
+    },
+    content: {
+        type: String,
+        default: 'This is a box component',
+    },
+    items: {
+        type: Array as () => Item[],
+        default: () => [],
+    },
+});
+
+const theme = useTheme();
+const themeValue = computed(() => theme.global.name.value);
+const itemsPerPage = ref(2);
 </script>
