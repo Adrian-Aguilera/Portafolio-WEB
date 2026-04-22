@@ -27,7 +27,7 @@ jobs:
     - name: Instalar node
       uses: actions/setup-node@v3
       with:
-        node-version: 18 # O la versión que uses en tu proyecto local
+        node-version: 20
         cache: 'yarn'    # Esto acelera el proceso guardando en caché las dependencias
         
     - name: Instalar dependencias con Yarn
