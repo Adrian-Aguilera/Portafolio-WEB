@@ -1,5 +1,5 @@
 <template>
-    <v-card width="90%" :variant="theme === 'dark' ? 'elevated' : 'outlined'" >
+    <v-card width="90%" :variant="themeValue === 'dark' ? 'elevated' : 'outlined'" >
         <v-card-title><span class="text-green-accent-3">~ cd </span>{{ `${title}` }}
         </v-card-title>
         <span class="ml-3 text-orange-darken-2 text-h5"><v-icon>bi bi-alt</v-icon></span>
@@ -88,42 +88,58 @@
     </v-card>
 </template>
 
-<script>
-import 'github-calendar/dist/github-calendar-responsive.css';
-export default {
-    name: 'PerfilComponent',
-    props: {
-        title: {
-            type: String,
-            default: 'perfil',
-        },
-        myself: {
-            type: String,
-            default: 'This is a box component',
-        },
-        skills: {
-            type: Array,
-            default: () => [],
-        },
-        gitHubActivity: {
-            type: Array,
-            default: () => [],
-        },
-        socials: {
-            type: Array,
-            default: () => [],
-        }
-    },
-    data: () => ({
-    }),
-    methods: {},
-    computed: {
-        theme() {
-            return this.$store.getters.theme;
-        },
-        base() {
-            return this.$store.getters.base;
-        },
-    },
+<script setup lang="ts">
+import { useTheme } from 'vuetify';
+import { computed } from 'vue';
+
+interface Socials {
+    icon: string;
+    title: string;
+    url: string;
 }
+
+interface Skills {
+    title: string;
+    technologies: {
+        title: string;
+        icon: string;
+    }[];
+    frameworks: {
+        title: string;
+        icon: string;
+    }[];
+}
+
+interface GitHubActivity {
+    avatar: string;
+}
+
+const props = defineProps({
+    title: {
+        type: String,
+        default: 'perfil',
+    },
+    myself: {
+        type: String,
+        default: 'This is a box component',
+    },
+    skills: {
+        type: Array as () => Skills[],
+        default: () => [],
+    },
+    gitHubActivity: {
+        type: Array as () => GitHubActivity[],
+        default: () => [],
+    },
+    socials: {
+        type: Array as () => Socials[],
+        default: () => [],
+    }
+});
+
+const theme = useTheme();
+
+const themeValue = computed(() => {
+    return theme.global.name.value;
+});
 </script>
